@@ -42,7 +42,7 @@ void	ra(t_list *list)
 	ft_printf("ra\n");
 }
 
-void	rra_rrb(t_list **list)
+void	rra(t_list **list)
 {
 	t_list	*tmp;
 	t_list	*aux;
@@ -59,7 +59,7 @@ void	rra_rrb(t_list **list)
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
-	rra_rrb(stack_a);
-	rra_rrb(stack_b);
+	rra(stack_a);
+	rrb(stack_b);
 	ft_printf("rrr\n");
 }

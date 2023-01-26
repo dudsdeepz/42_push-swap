@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 15:51:50 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:32:28 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort3(t_list **head)
 	last = lstlast(*head);
 	tmp = (*head);
 	if (tmp->box < tmp->next->box && tmp->box > last->box)
-		rra_rrb(head);
+		rra(head);
 	else if (last->box < tmp->box && last->box < tmp->next->box)
 	{
 		ra(*head);
@@ -39,24 +39,15 @@ void	sort3(t_list **head)
 	print_list(*head);
 }
 
-void	sort5(t_list **stack_a)
+void	sort5(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*stack_b;
-	t_list	*tmp;
+	// t_list	*last_b;
+	// t_list	*last_a;
 
-	tmp = (*stack_a);
-	pa(&tmp, &stack_b);
+	// last_b = lstlast(stack_b);
+	// last_a = lstlast(*stack_a);
 	ft_printf("==============\n");
-	ft_printf("STACK A\n");
-	print_list(tmp);
+	print_list(*stack_a);
 	ft_printf("==============\n");
-	printf("STACK B\n");
-	printf("%d\n", stack_b->box);
-	ft_printf("==============\n");
-	pa(&tmp, &stack_b);
-	ft_printf("STACK A\n");
-	print_list(tmp);
-	ft_printf("==============\n");
-	printf("STACK B\n");
-	printf("%d\n", stack_b->box);
+	print_list(*stack_b);
 }

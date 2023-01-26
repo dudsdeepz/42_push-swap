@@ -18,7 +18,9 @@ int	main(int ac, char **v)
 	t_list	*head;
 	t_list	*last;
 	t_list	*tmp;
+	t_list	*stack_b;
 
+	stack_b = NULL;
 	head = NULL;
 	if (ac < 1)
 		return (0);
@@ -33,5 +35,5 @@ int	main(int ac, char **v)
 		last = tmp;
 		a++;
 	}
-	sort5(&head);
+	sort5(&head, &stack_b);
 }
