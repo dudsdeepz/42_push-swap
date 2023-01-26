@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 15:41:45 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/26 16:51:23 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	pa(t_list **stack_src, t_list **stack_dest);
 void	sb(t_list *list);
 void	rb(t_list *list);
 void	pb(t_list **stack_src, t_list **stack_dest);
-int		find_smallest(t_list **list);
-int	ft_lstsize(t_list *lst);
+int		smallest(t_list *list);
+int		ft_lstsize(t_list *lst);
 
 #endif

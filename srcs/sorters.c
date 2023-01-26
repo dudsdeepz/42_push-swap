@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 16:32:28 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:58:16 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,25 @@ void	sort3(t_list **head)
 		sa(*head);
 		ra(*head);
 	}
-	ft_printf("==============\n");
-	print_list(*head);
 }
 
 void	sort5(t_list **stack_a, t_list **stack_b)
 {
 	// t_list	*last_b;
 	// t_list	*last_a;
-	t_list		*smallest_a;
 
-	smallest_a = find_smallest(stack_a);
-	// last_b = lstlast(stack_b);kkoiooooollll;;'''0 
+	// last_b = lstlast(stack_b);
 	// last_a = lstlast(*stack_a);
-	while(ft_lstsize(stack_a) != 3)
-		pb(smallest_a, stack_b);
+	if (smallest(*stack_a) >= (ft_lstsize(*stack_a) = 4))
+		rra(stack_a);
+	else if (smallest(stack_a) <= (ft_lstsize(*stack_a) = 3))
+		ra (*stack_a);
+	sort3(stack_a);
+	while (*stack_b)
+		pa(stack_b, stack_a);
 	ft_printf("==============\n");
-mm}
+	print_list(*stack_a);
+	ft_printf("==============\n");
+	print_list(*stack_b);
+}
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:57:38 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 16:28:28 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:11:45 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,4 @@ void	pb(t_list **stack_src, t_list **stack_dest)
 	ft_lstadd_front(stack_dest, *(stack_src));
 	*stack_src = cursor;
 	ft_printf("pb\n");
-}
-
-void	rrb(t_list **list)
-{
-	t_list	*tmp;
-	t_list	*aux;
-
-	aux = lstlast(*list);
-	tmp = (*list);
-	aux->next = (*list);
-	while (tmp->next != aux)
-		tmp = tmp->next;
-	(*list) = aux;
-	tmp->next = NULL;
-	ft_printf("rrb\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:04:42 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 14:40:11 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:12:05 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new = new->next;
 }
 
-int	find_smallest(t_list **list)
+int	smallest(t_list *list)
 {
-	int min;
+	int	min;
 
 	min = INT_MAX;
-	while ((*list) != NULL)
+	while (list != NULL)
 	{
-		if (min > (*list)->box)
-			min = (*list)->box;
-		(*list) = (*list)->next;
+		if (min > list->box)
+			min = list->box;
+		list = list->next;
 	}
 	return (min);
 }
