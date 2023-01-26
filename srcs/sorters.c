@@ -43,11 +43,12 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 {
 	// t_list	*last_b;
 	// t_list	*last_a;
+	t_list		*smallest_a;
 
-	// last_b = lstlast(stack_b);
+	smallest_a = find_smallest(stack_a);
+	// last_b = lstlast(stack_b);kkoiooooollll;;'''0 
 	// last_a = lstlast(*stack_a);
+	while(ft_lstsize(stack_a) != 3)
+		pb(smallest_a, stack_b);
 	ft_printf("==============\n");
-	print_list(*stack_a);
-	ft_printf("==============\n");
-	print_list(*stack_b);
-}
+mm}

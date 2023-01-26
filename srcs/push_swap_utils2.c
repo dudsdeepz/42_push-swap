@@ -19,3 +19,34 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 	new = new->next;
 }
+
+int	find_smallest(t_list **list)
+{
+	int min;
+
+	min = INT_MAX;
+	while ((*list) != NULL)
+	{
+		if (min > (*list)->box)
+			min = (*list)->box;
+		(*list) = (*list)->next;
+	}
+	return (min);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int		count;
+	t_list	*ptr;
+
+	count = 0;
+	if (!lst)
+		return (0);
+	ptr = lst;
+	while (ptr != NULL)
+	{
+		count++;
+		ptr = ptr->next;
+	}
+	return (count);
+}

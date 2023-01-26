@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -41,5 +42,7 @@ void	pa(t_list **stack_src, t_list **stack_dest);
 void	sb(t_list *list);
 void	rb(t_list *list);
 void	pb(t_list **stack_src, t_list **stack_dest);
+int		find_smallest(t_list **list);
+int	ft_lstsize(t_list *lst);
 
 #endif
