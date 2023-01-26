@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+         #
+#    By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:08:17 by eduarodr          #+#    #+#              #
-#    Updated: 2023/01/26 17:11:26 by eduardo          ###   ########.fr        #
+#    Updated: 2023/01/26 19:27:13 by eduarodr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	push_swap.c\
 		srcs/push_swap_utils.c\
-		srcs/sorters.c\
+		srcs/sorter3&5.c\
 		srcs/sorter_functions.c\
 		srcs/sorter_functions2.c\
 		srcs/push_swap_utils2.c\

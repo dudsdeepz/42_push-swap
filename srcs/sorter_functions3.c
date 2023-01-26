@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/01/26 17:37:20 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/01/26 19:15:03 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,18 @@ void	rrb(t_list **list)
 	(*list) = aux;
 	tmp->next = NULL;
 	ft_printf("rrb\n");
+}
+
+int	get_pos(int item, t_list *list)
+{
+	int	count;
+
+	count = 0;
+	while (list->box != item)
+	{
+		count++;
+		list = list->next;
+	}
+	count++;
+	return (count);
 }
