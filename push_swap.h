@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/26 19:12:37 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:23:07 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void	pb(t_list **stack_src, t_list **stack_dest);
 int		smallest(t_list *list);
 int		ft_lstsize(t_list *lst);
 int		get_pos(int pos, t_list *list);
+void	sort_chunks(t_list **stack_a, t_list **stack_b);
 
 #endif

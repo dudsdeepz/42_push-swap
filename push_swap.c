@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:10:49 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 15:46:35 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/27 12:55:27 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int	main(int ac, char **v)
 		last = tmp;
 		a++;
 	}
-	sort5(&head, &stack_b);
+	sort_chunks(&head, &stack_b);
 }

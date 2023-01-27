@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorter_functions3.c                                :+:      :+:    :+:   */
+/*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/01/27 15:23:04 by eduarodr         ###   ########.fr       */
+/*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
+/*   Updated: 2023/01/27 15:31:59 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rrb(t_list **list)
+void	sort_chunks(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
-	t_list	*aux;
-
-	aux = lstlast(*list);
-	tmp = (*list);
-	aux->next = (*list);
-	while (tmp->next != aux)
-		tmp = tmp->next;
-	(*list) = aux;
-	tmp->next = NULL;
-	ft_printf("rrb\n");
+	while (ft_lstsize(*stack_b) != 25)
+		pb(stack_a, stack_b);
+	ft_printf("=================\n");
+	ft_printf("STACK_A\n");
+	print_list(*stack_a);
+	ft_printf("=================\n");
+	ft_printf("STACK B\n");
+	print_list(*stack_b);
 }
 
-int	get_pos(int item, t_list *list)
-{
-	int	count;
-
-	count = 0;
-	while (list->box != item)
-	{
-		count++;
-		list = list->next;
-	}
-	count++;
-	return (count);
-}
