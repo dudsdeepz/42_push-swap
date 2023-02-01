@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorters.c                                          :+:      :+:    :+:   */
+/*   sorter35.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/26 19:25:35 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:54:14 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	sort3(t_list **head)
 
 void	sort5(t_list **stack_a, t_list **stack_b)
 {
-
 	while (ft_lstsize(*stack_a) != 3)
 	{
 		if (get_pos(smallest(*stack_a), *stack_a) >= 4)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:53:50 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 15:42:11 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/01/31 14:00:51 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	rra(t_list **list)
 		tmp = tmp->next;
 	(*list) = aux;
 	tmp->next = NULL;
-	ft_printf("rra_rrb\n");
+	ft_printf("rra\n");
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)

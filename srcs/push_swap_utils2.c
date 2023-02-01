@@ -6,7 +6,7 @@
 /*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:04:42 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/26 17:12:05 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:46:21 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ int	smallest(t_list *list)
 		list = list->next;
 	}
 	return (min);
+}
+
+int	biggest(t_list *list)
+{
+	int	max;
+
+	max = INT_MIN;
+	while (list != NULL)
+	{
+		if (max < list->box)
+			max = list->box;
+		list = list->next;
+	}
+	return (max);
 }
 
 int	ft_lstsize(t_list *lst)

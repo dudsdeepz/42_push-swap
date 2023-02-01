@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/27 15:23:07 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:16:22 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,13 @@ int		smallest(t_list *list);
 int		ft_lstsize(t_list *lst);
 int		get_pos(int pos, t_list *list);
 void	sort_chunks(t_list **stack_a, t_list **stack_b);
+int		biggest(t_list *list);
+void	biggest_stack_a25(t_list **stack_a, t_list **stack_b);
+void	biggest_stack_b25(t_list **stack_a, t_list **stack_b);
+void	smallest_stack_b25(t_list **stack_a, t_list **stack_b);
+void	smallest_stack_a25(t_list **stack_a, t_list **stack_b);
+void	smallest_stack_a50(t_list **stack_a, t_list **stack_b);
+void	smallest_stack_b50(t_list **stack_a, t_list **stack_b);
+void	sort25plsA(t_list **stack_a, t_list **stack_b);
 
 #endif
