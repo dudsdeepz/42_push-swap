@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/01 13:16:22 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/02/02 14:40:50 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_list
 {
 	int				box;
+	int				index;
 	struct s_list	*next;
 }			t_list;
 
@@ -53,6 +54,6 @@ void	smallest_stack_b25(t_list **stack_a, t_list **stack_b);
 void	smallest_stack_a25(t_list **stack_a, t_list **stack_b);
 void	smallest_stack_a50(t_list **stack_a, t_list **stack_b);
 void	smallest_stack_b50(t_list **stack_a, t_list **stack_b);
-void	sort25plsA(t_list **stack_a, t_list **stack_b);
+void	get_index(t_list **list);
 
 #endif

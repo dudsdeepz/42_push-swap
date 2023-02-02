@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/01 13:40:36 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:32:45 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	sort_chunks(t_list **stack_a, t_list **stack_b)
 {
-	// t_list	*last_a;
+	//t_list	*last_a;
+	//t_list	*last_b;
 
-	// last_a = lstlast(*stack_a);
-	while (ft_lstsize(*stack_b) != 25)
-		pb (stack_a, stack_b);
-	smallest_stack_b25(stack_a, stack_b);
+	//last_a = lstlast(*stack_a);
+	//last_b = lstlast(*stack_b);
+	get_index(stack_a);
 }
