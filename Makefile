@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+         #
+#    By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:08:17 by eduarodr          #+#    #+#              #
-#    Updated: 2023/02/01 00:58:15 by eduardo          ###   ########.fr        #
+#    Updated: 2023/02/03 03:38:10 by eduarodr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC =	push_swap.c\
 		srcs/push_swap_utils2.c\
 		srcs/sorter_functions3.c\
 		srcs/sorter_functions4.c\
-		srcs/sort_chunks.c\
+		srcs/surtar.c\
 
 OBJ =	${SRC:.c=.o}
 

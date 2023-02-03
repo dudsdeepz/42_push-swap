@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/02 14:40:50 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/03 06:56:38 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,7 @@ int		ft_lstsize(t_list *lst);
 int		get_pos(int pos, t_list *list);
 void	sort_chunks(t_list **stack_a, t_list **stack_b);
 int		biggest(t_list *list);
-void	biggest_stack_a25(t_list **stack_a, t_list **stack_b);
-void	biggest_stack_b25(t_list **stack_a, t_list **stack_b);
-void	smallest_stack_b25(t_list **stack_a, t_list **stack_b);
-void	smallest_stack_a25(t_list **stack_a, t_list **stack_b);
-void	smallest_stack_a50(t_list **stack_a, t_list **stack_b);
-void	smallest_stack_b50(t_list **stack_a, t_list **stack_b);
 void	get_index(t_list **list);
-
+int		chunk_check(t_list	**list, int start, int end);
+int		is_sorted(t_list **list);
 #endif
