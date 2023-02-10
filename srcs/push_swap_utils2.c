@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:04:42 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/03 03:20:42 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:32:45 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,14 @@ int	ft_lstsize(t_list *lst)
 		ptr = ptr->next;
 	}
 	return (count);
+}
+
+int	smallest_move_cost(t_list **stack_a, t_list **stack_b)
+{
+	int		pos;
+	int		cost;
+
+	pos = get_pos(smallest(*stack_b), *stack_b);
+	cost = move_cost_aux(pos, stack_a, stack_b);
+	return (cost);
 }

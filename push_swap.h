@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/03 06:56:38 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:44:04 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,38 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-t_list	*create_number(int box);
-t_list	*lstlast(t_list *head);
-void	sa(t_list	*list);
-void	ra(t_list	*list);
-void	rra(t_list **list);
-void	rrb(t_list **list);
-void	sort3(t_list **list);
-int		ft_atoi(const char *nptr);
-void	rr(t_list *stack_a, t_list *stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
-void	print_list(t_list *head);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_printf(const char *format, ...);
-void	sort5(t_list **stack_a, t_list **stack_b);
-void	pa(t_list **stack_src, t_list **stack_dest);
-void	sb(t_list *list);
-void	rb(t_list *list);
-void	pb(t_list **stack_src, t_list **stack_dest);
-int		smallest(t_list *list);
-int		ft_lstsize(t_list *lst);
-int		get_pos(int pos, t_list *list);
-void	sort_chunks(t_list **stack_a, t_list **stack_b);
-int		biggest(t_list *list);
-void	get_index(t_list **list);
-int		chunk_check(t_list	**list, int start, int end);
-int		is_sorted(t_list **list);
+t_list		*create_number(int box);
+t_list		*lstlast(t_list *head);
+void		sa(t_list	*list);
+void		ra(t_list	*list);
+void		rra(t_list **list);
+void		rrb(t_list **list);
+void		sort3(t_list **list);
+int			ft_atoi(const char *nptr);
+void		rr(t_list *stack_a, t_list *stack_b);
+void		rrr(t_list **stack_a, t_list **stack_b);
+void		print_list(t_list *head);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+int			ft_printf(const char *format, ...);
+void		sort5(t_list **stack_a, t_list **stack_b);
+void		pa(t_list **stack_src, t_list **stack_dest);
+void		sb(t_list *list);
+void		rb(t_list *list);
+void		pb(t_list **stack_src, t_list **stack_dest);
+int			smallest(t_list *list);
+int			ft_lstsize(t_list *lst);
+int			get_pos(int pos, t_list *list);
+void		sort_chunks(t_list **stack_a, t_list **stack_b);
+int			biggest(t_list *list);
+void		get_index(t_list **list);
+int			is_sorted(t_list **list);
+int			media(t_list *stack);
+long int	soma(t_list	*stack);
+void		half_sorted(t_list **stack_a, t_list **stack_b, int size);
+int			move_cost(t_list **stack_a, t_list **stack_b);
+int			move_cost_aux(int pos, t_list **stack_a, t_list **stack_b);
+int			smallest_move_cost(t_list **stack_a, t_list **stack_b);
+int			best_move(t_list **stack_a, t_list **stack_b);
+void		top_and_push(t_list **stack_a, t_list **stack_B);
+
 #endif

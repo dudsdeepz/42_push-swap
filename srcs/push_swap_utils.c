@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/25 15:27:20 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:14:54 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ t_list	*lstlast(t_list *list)
 	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp);
-}
-
-void	stacksize(t_list	*head)
-{
-	t_list	*tmp;
-	int		count;
-
-	tmp = head;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		count++;
-	}
 }
 
 void	print_list(t_list *head)
@@ -82,4 +69,40 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (result * sign);
+}
+
+int	best_move(t_list **stack_a, t_list **stack_b)
+{
+	if (move_cost(stack_a, stack_b) > smallest_move_cost(stack_a, stack_b))
+		return (0);
+	else
+		return (1);
+}
+
+void	top_and_push(t_list **stack_a, t_list **stack_b)
+{
+	if (!best_move(stack_a, stack_b))
+	{
+		if (get_pos(smallest(*stack_b), *stack_b) >= ft_lstsize(*stack_b) / 2)
+		{
+			while (smallest(*stack_b) < (*stack_b)->box)
+				rrb(stack_b);
+		}
+		else
+			while (smallest(*stack_b) < (*stack_b)->box)
+				rb(*stack_b);
+		pa(stack_b, stack_a);
+	}
+	else if (best_move(stack_a, stack_b) == 1)
+		{
+		if (get_pos(biggest(*stack_b), *stack_b) >= ft_lstsize(*stack_b) / 2)
+		{
+			while (biggest(*stack_b) > (*stack_b)->box)
+				rrb(stack_b);
+		}
+		else
+			while (biggest(*stack_b) > (*stack_b)->box)
+				rb(*stack_b);
+		pa(stack_b, stack_a);
+	}
 }
