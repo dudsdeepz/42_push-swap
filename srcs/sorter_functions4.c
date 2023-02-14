@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/10 15:46:29 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:50:55 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,6 @@ void	get_index(t_list **list)
 		}
 		tmp = tmp->next;
 	}
-}
-
-int	chunk_check(t_list	**list, int start, int end)
-{
-	t_list	*tmp;
-
-	tmp = (*list);
-	if (tmp->index >= start && tmp->index <= end)
-		return (1);
-	return (0);
 }
 
 long int	soma(t_list	*stack)
@@ -67,7 +57,7 @@ void	half_sorted(t_list **stack_a, t_list **stack_b, int size)
 		if ((*stack_a)->box <= media(*stack_a))
 		{
 			pb (stack_a, stack_b);
-			if (ft_lstsize(*stack_b) > 10)
+			if (ft_lstsize(*stack_b) > 5)
 			{
 				if ((*stack_b)->box < media(*stack_b))
 					rb(*stack_b);

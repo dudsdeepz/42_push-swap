@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/10 14:28:14 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:03:20 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,6 @@ int	is_sorted(t_list **list)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-int	move_cost(t_list **stack_a, t_list **stack_b)
-{
-	int		pos;
-	int		cost;
-
-	pos = get_pos(biggest(*stack_b), *stack_b);
-	cost = move_cost_aux(pos, stack_a, stack_b);
-	return (cost);
 }
 
 int	move_cost_aux(int pos, t_list **stack_a, t_list **stack_b)

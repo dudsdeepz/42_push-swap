@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/10 14:14:54 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:38:10 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,38 +71,53 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-int	best_move(t_list **stack_a, t_list **stack_b)
+int neighbour(t_list **stack_a, t_list **stack_b)
 {
-	if (move_cost(stack_a, stack_b) > smallest_move_cost(stack_a, stack_b))
-		return (0);
-	else
-		return (1);
+	int hold;
+
+	hold = 0;
+	while ((*stack_a)->box < (*stack_b)->box)
+		(*stack_b) = (*stack_b)->next;
+	while ((*stack_a)->box > (*stack_b)->box)
+	{
+		if ((*stack_a)->box < (*stack_a)->next->box)
+			hold = (*stack_a)->box;
+		(*stack_a) = (*stack_a)->next;
+	}
+	return (hold);
 }
 
-void	top_and_push(t_list **stack_a, t_list **stack_b)
+int move_cost(t_list **stack, int n)
 {
-	if (!best_move(stack_a, stack_b))
+	int	move;
+
+	move = 0;
+	if (get_pos(n, *stack) < ft_lstsize(*stack) / 2)
 	{
-		if (get_pos(smallest(*stack_b), *stack_b) >= ft_lstsize(*stack_b) / 2)
-		{
-			while (smallest(*stack_b) < (*stack_b)->box)
-				rrb(stack_b);
-		}
-		else
-			while (smallest(*stack_b) < (*stack_b)->box)
-				rb(*stack_b);
-		pa(stack_b, stack_a);
+		while (move != get_pos(n, *stack))
+			move++;
 	}
-	else if (best_move(stack_a, stack_b) == 1)
-		{
-		if (get_pos(biggest(*stack_b), *stack_b) >= ft_lstsize(*stack_b) / 2)
-		{
-			while (biggest(*stack_b) > (*stack_b)->box)
-				rrb(stack_b);
-		}
-		else
-			while (biggest(*stack_b) > (*stack_b)->box)
-				rb(*stack_b);
-		pa(stack_b, stack_a);
+	else if (get_pos(n, *stack) >= ft_lstsize(*stack) / 2)
+	{
+		while (get_pos(n, *stack) != move)
+			move++;
+		move -= ft_lstsize(*stack) + 1;
+		move *= -1;
 	}
+	return (move);
 }
+
+int total_cost(t_list **stack_a, t_list **stack_b)
+{
+	int cost_b;
+	int cost_a;
+
+	cost_b = move_cost(stack_b, (*stack_b)->box);
+	cost_a = move_cost(stack_a, neighbour(stack_a, stack_b));
+	return (cost_a + cost_b);
+}
+
+//void	by_cost(t_list **stack_a, **stack_b)
+//{
+
+//}

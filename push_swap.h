@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/10 15:44:04 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:30:20 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int			is_sorted(t_list **list);
 int			media(t_list *stack);
 long int	soma(t_list	*stack);
 void		half_sorted(t_list **stack_a, t_list **stack_b, int size);
-int			move_cost(t_list **stack_a, t_list **stack_b);
+int			move_cost(t_list **stack, int n);
 int			move_cost_aux(int pos, t_list **stack_a, t_list **stack_b);
 int			smallest_move_cost(t_list **stack_a, t_list **stack_b);
-int			best_move(t_list **stack_a, t_list **stack_b);
-void		top_and_push(t_list **stack_a, t_list **stack_B);
+int			total_cost(t_list **stack_a, t_list **stack_b);
+int			neighbour(t_list **stack_a, t_list **stack_b);
 
 #endif
