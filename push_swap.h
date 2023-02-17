@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/14 13:30:20 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:23:58 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef struct s_list
 {
 	int				box;
-	int				index;
 	struct s_list	*next;
 }			t_list;
 
@@ -46,17 +45,18 @@ void		pb(t_list **stack_src, t_list **stack_dest);
 int			smallest(t_list *list);
 int			ft_lstsize(t_list *lst);
 int			get_pos(int pos, t_list *list);
-void		sort_chunks(t_list **stack_a, t_list **stack_b);
+void		surtar(t_list **stack_a, t_list **stack_b);
 int			biggest(t_list *list);
-void		get_index(t_list **list);
 int			is_sorted(t_list **list);
 int			media(t_list *stack);
 long int	soma(t_list	*stack);
-void		half_sorted(t_list **stack_a, t_list **stack_b, int size);
-int			move_cost(t_list **stack, int n);
+void		half_sorted(t_list **stack_a, t_list **stack_b);
+int 		move_cost(t_list **stack, int n);
 int			move_cost_aux(int pos, t_list **stack_a, t_list **stack_b);
 int			smallest_move_cost(t_list **stack_a, t_list **stack_b);
-int			total_cost(t_list **stack_a, t_list **stack_b);
-int			neighbour(t_list **stack_a, t_list **stack_b);
+int			total_cost(t_list **a, t_list **stack_b);
+int			neighbour(t_list **a, t_list **b);
+//int		test(t_list **stack_a, t_list **stack_b);
+void		sort_checker(t_list **a, t_list **b);
 
 #endif

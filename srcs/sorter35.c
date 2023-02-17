@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter35.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/31 15:54:14 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/02/17 13:43:59 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	sort3(t_list **head)
 
 	last = lstlast(*head);
 	tmp = (*head);
-	if (tmp->box < tmp->next->box && tmp->box > last->box)
+	if (ft_lstsize(tmp) == 2 && tmp->box > tmp->next->box)
+		sa(*head);
+	else if (tmp->box < tmp->next->box && tmp->box > last->box)
 		rra(head);
 	else if (last->box < tmp->box && last->box < tmp->next->box)
 	{
@@ -57,7 +59,5 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 	sort3(stack_a);
 	while (*stack_b)
 		pa(stack_b, stack_a);
-	ft_printf("==============\n");
-	print_list(*stack_a);
 }
 

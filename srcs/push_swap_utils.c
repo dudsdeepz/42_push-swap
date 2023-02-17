@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/14 13:38:10 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:25:30 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,6 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-int neighbour(t_list **stack_a, t_list **stack_b)
-{
-	int hold;
-
-	hold = 0;
-	while ((*stack_a)->box < (*stack_b)->box)
-		(*stack_b) = (*stack_b)->next;
-	while ((*stack_a)->box > (*stack_b)->box)
-	{
-		if ((*stack_a)->box < (*stack_a)->next->box)
-			hold = (*stack_a)->box;
-		(*stack_a) = (*stack_a)->next;
-	}
-	return (hold);
-}
-
 int move_cost(t_list **stack, int n)
 {
 	int	move;
@@ -104,20 +88,21 @@ int move_cost(t_list **stack, int n)
 		move -= ft_lstsize(*stack) + 1;
 		move *= -1;
 	}
+	else if (!move)
+		return (0);
 	return (move);
 }
 
-int total_cost(t_list **stack_a, t_list **stack_b)
+int total_cost(t_list **a, t_list **b)
 {
-	int cost_b;
-	int cost_a;
+	int		cost_b;
+	int		cost_a;
+	int		n;
 
-	cost_b = move_cost(stack_b, (*stack_b)->box);
-	cost_a = move_cost(stack_a, neighbour(stack_a, stack_b));
-	return (cost_a + cost_b);
+	n = neighbour(a, b);
+	printf("num: %i\n", n);
+	cost_b = move_cost(b, (*b)->box);
+	printf("cost_b: %i\n", cost_b);
+	cost_a = move_cost(a, neighbour(a, b));
+	return (cost_a + cost_b + 1);
 }
-
-//void	by_cost(t_list **stack_a, **stack_b)
-//{
-
-//}
