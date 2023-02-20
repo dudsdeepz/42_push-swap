@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/17 13:45:34 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:45:12 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,27 @@ int	move_cost_aux(int pos, t_list **stack_a, t_list **stack_b)
 	}
 	return (move);
 }
+
+int	best_move(t_list **stack_a, t_list **stack_b)
+{
+	int		first;
+	int		second;
+	int		hold;
+
+	first = total_cost(stack_a, stack_b);
+	printf("first cost:%i \n", first);
+	(*stack_b) = (*stack_b)->next;
+	second = total_cost(stack_a, stack_b);
+	printf("second cost:%i \n", second);
+	hold = 0;
+	while ((*stack_b)->next)
+	{
+		if (first <= second)
+			hold = (*stack_b)->box;
+		(*stack_b) = (*stack_b)->next;
+		first = total_cost(stack_a, stack_b);
+		second = total_cost(stack_a, stack_b);
+	}
+	return (hold);
+}
+

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   surtar.c                                           :+:      :+:    :+:   */
+/*   sorter_functions5.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/20 11:42:38 by eduardo          ###   ########.fr       */
+/*   Created: 2023/02/20 11:46:28 by eduardo           #+#    #+#             */
+/*   Updated: 2023/02/20 11:48:21 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	surtar(t_list **stack_a, t_list **stack_b)
+int total_cost(t_list **a, t_list **b)
 {
-	//t_list	*last_a;
-	//t_list	*last_b;
+	int		cost_b;
+	int		cost_a;
 
-	//last_a = lstlast(*stack_a);
-	//last_b = lstlast(*stack_b);
-	half_sorted(stack_a, stack_b);
-	print_list(*stack_a);
-	printf("===\n");
-	print_list(*stack_b);
+	cost_a = 0;
+	cost_b = move_cost(b, (*b)->box);
+	while (get_pos(neighbour(a, b), *a) != cost_a)
+		cost_a++;
+	return (cost_a + cost_b);
 }
 
+void do_it(t_list **stack_b, t_list **stack_a)
+{
+    
+}

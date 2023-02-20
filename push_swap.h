@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 14:23:58 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:22:42 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int			total_cost(t_list **a, t_list **stack_b);
 int			neighbour(t_list **a, t_list **b);
 //int		test(t_list **stack_a, t_list **stack_b);
 void		sort_checker(t_list **a, t_list **b);
+int	best_move(t_list **stack_a, t_list **stack_b);
 
 #endif

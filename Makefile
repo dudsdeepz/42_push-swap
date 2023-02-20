@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+         #
+#    By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:08:17 by eduarodr          #+#    #+#              #
-#    Updated: 2023/02/17 14:29:14 by eduarodr         ###   ########.fr        #
+#    Updated: 2023/02/20 11:46:18 by eduardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC =	push_swap.c\
 		srcs/push_swap_utils2.c\
 		srcs/sorter_functions3.c\
 		srcs/sorter_functions4.c\
+		srcs/sorter_functions5.c\
 		srcs/surtar.c\
 
 OBJ =	${SRC:.c=.o}
@@ -28,7 +29,7 @@ CC = gcc
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 PRINTF_PATH = ./printf --no-print-directory
 PRINTF_NAME = libftprintf.a

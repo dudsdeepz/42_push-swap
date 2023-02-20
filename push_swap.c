@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:10:49 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/16 16:52:25 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:42:16 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	main(int ac, char **v)
 		a++;
 	}
 	sort_checker(&head, &stack_b);
+	free(head);
 	//sort_chunks(&head, &stack_b);
 }

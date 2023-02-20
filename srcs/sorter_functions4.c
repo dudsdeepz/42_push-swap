@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions4.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/17 15:06:13 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:45:54 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int neighbour(t_list **a, t_list **b)
 {
 	int		elem;
 	int		hold;
-	t_list *last;
+	t_list	*last;
 
 	last = lstlast(*a);
 	hold = (*a)->box - (*b)->box;
 	elem = (*a)->box;
-	while ((*a))
+	while ((*a)->next)
 	{
 		if ((*b)->box < ft_lstsize(*b) / 2)
 			return (last->box);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 15:25:30 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:45:02 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-int move_cost(t_list **stack, int n)
+int	move_cost(t_list **stack, int n)
 {
 	int	move;
 
@@ -93,16 +93,3 @@ int move_cost(t_list **stack, int n)
 	return (move);
 }
 
-int total_cost(t_list **a, t_list **b)
-{
-	int		cost_b;
-	int		cost_a;
-	int		n;
-
-	n = neighbour(a, b);
-	printf("num: %i\n", n);
-	cost_b = move_cost(b, (*b)->box);
-	printf("cost_b: %i\n", cost_b);
-	cost_a = move_cost(a, neighbour(a, b));
-	return (cost_a + cost_b + 1);
-}
