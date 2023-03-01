@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 15:25:30 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:43:51 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ int total_cost(t_list **a, t_list **b)
 	printf("num: %i\n", n);
 	cost_b = move_cost(b, (*b)->box);
 	printf("cost_b: %i\n", cost_b);
-	cost_a = move_cost(a, neighbour(a, b));
-	return (cost_a + cost_b + 1);
+	cost_a = get_pos(n, *a);
+	return (cost_a + cost_b);
 }

@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:10:49 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/16 16:52:25 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:57:32 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,22 @@ int	main(int ac, char **v)
 
 	stack_b = NULL;
 	head = NULL;
-	if (ac < 1)
+	if (ac <= 2)
 		return (0);
 	a = 1;
-	while (v[a])
+	if (parsing(v) == 1)
 	{
-		tmp = create_number(ft_atoi(v[a]));
-		if (!head)
-			head = tmp;
-		else
-			last->next = tmp;
-		last = tmp;
-		a++;
+		while (v[a])
+		{
+			tmp = create_number(ft_atoi(v[a]));
+			if (!head)
+				head = tmp;
+			else
+				last->next = tmp;
+			last = tmp;
+			a++;
+		}
+		sort_checker(&head, &stack_b);
+		free(head);
 	}
-	sort_checker(&head, &stack_b);
-	//sort_chunks(&head, &stack_b);
 }

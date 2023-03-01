@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 14:25:18 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:55:09 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ void	surtar(t_list **stack_a, t_list **stack_b)
 	print_list(*stack_a);
 	printf("===\n");
 	print_list(*stack_b);
-	printf("cost: %i\n", total_cost(stack_a, stack_b));
 }
 

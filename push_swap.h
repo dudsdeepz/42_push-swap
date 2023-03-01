@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 14:23:58 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:57:11 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int			total_cost(t_list **a, t_list **stack_b);
 int			neighbour(t_list **a, t_list **b);
 //int		test(t_list **stack_a, t_list **stack_b);
 void		sort_checker(t_list **a, t_list **b);
-
+int			parsing(char **list);
+int			ft_isdigit(int c);
+int			ft_isalpha(int c);
 #endif

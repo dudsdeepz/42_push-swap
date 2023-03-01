@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/17 15:06:13 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:21:59 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ int neighbour(t_list **a, t_list **b)
 	elem = (*a)->box;
 	while ((*a))
 	{
-		if ((*b)->box < ft_lstsize(*b) / 2)
-			return (last->box);
+
 		while (hold < 0)
 		{
 			(*a) = (*a)->next;
@@ -75,6 +74,8 @@ int neighbour(t_list **a, t_list **b)
 		}
 		(*a) = (*a)->next;
 	}
+	if (elem > last->box)
+		last->next->box = smallest(*b);
 	return (elem);
 }
 
@@ -86,4 +87,37 @@ void	sort_checker(t_list **a, t_list **b)
 		sort5(a, b);
 	else if (ft_lstsize(*a) > 5)
 		surtar(a, b);
+}
+int	parsing(char **list)
+{
+	int i;
+	int a;
+
+	i = 0;
+	a = 0;
+	while (list[++i])
+	{
+		while (list[i][a])
+		{
+			if (!ft_isdigit(list[i][a]))
+				return(printf("Error\n"));
+			a++;
+		}
+		a = 0;
+	}
+	return (1);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}
+
+int	ft_isalpha(int c)
+{
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }

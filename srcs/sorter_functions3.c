@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/17 13:45:34 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:43:02 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	get_pos(int item, t_list *list)
 	while (list->box != item)
 	{
 		count++;
-		list = list->next;
 	}
 	count++;
 	return (count);
