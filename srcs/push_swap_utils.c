@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/03 18:07:59 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:01:51 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ long	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-int move_cost(t_list **stack, int n)
+int	move_cost(t_list **stack, int n)
 {
 	int	move;
 	t_list *aux;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:57:38 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/16 13:54:31 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:45:18 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,4 @@ void	pb(t_list **stack_src, t_list **stack_dest)
 	*stack_src = cursor;
 	ft_printf("pb\n");
 }
+
