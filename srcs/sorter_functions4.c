@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/03/01 12:21:59 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:54:21 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,75 +49,43 @@ void	half_sorted(t_list **stack_a, t_list **stack_b)
 	sort3(stack_a);
 }
 
-int neighbour(t_list **a, t_list **b)
+int	neighbour(t_list **a, t_list **b)
 {
 	int		elem;
 	int		hold;
-	t_list *last;
+	t_list	*aux_a;
+	t_list	*aux_b;
 
-	last = lstlast(*a);
-	hold = (*a)->box - (*b)->box;
-	elem = (*a)->box;
-	while ((*a))
+	aux_a = (*a);
+	aux_b = (*b);
+	hold = aux_a->box - aux_b->box;
+	elem = aux_a->box;
+	while (hold < 0)
 	{
-
-		while (hold < 0)
-		{
-			(*a) = (*a)->next;
-			hold = (*a)->box - (*b)->box;
-			elem = (*a)->box;
-		}
-		if ((*a)->box - (*b)->box < hold)
-		{
-			hold = (*a)->box - (*b)->box;
-			elem = (*a)->box;
-		}
-		(*a) = (*a)->next;
+		aux_a = aux_a->next;
+		hold = aux_a->box - aux_b->box;
 	}
-	if (elem > last->box)
-		last->next->box = smallest(*b);
+	while (aux_a->next)
+	{
+		if (aux_a->box - aux_b->box < hold)
+		{
+			hold = aux_a->box - aux_b->box;
+			elem = aux_a->box;
+		}
+		aux_a = aux_a->next;
+	}
 	return (elem);
 }
 
 void	sort_checker(t_list **a, t_list **b)
 {
-	if (ft_lstsize(*a) <= 3)
-		sort3(a);
-	else if (ft_lstsize(*a) > 3 && ft_lstsize(*a) <= 5)
-		sort5(a, b);
-	else if (ft_lstsize(*a) > 5)
-		surtar(a, b);
-}
-int	parsing(char **list)
-{
-	int i;
-	int a;
-
-	i = 0;
-	a = 0;
-	while (list[++i])
+	if (!is_sorted(*a))
 	{
-		while (list[i][a])
-		{
-			if (!ft_isdigit(list[i][a]))
-				return(printf("Error\n"));
-			a++;
-		}
-		a = 0;
+		if (ft_lstsize(*a) <= 3)
+			sort3(a);
+		if (ft_lstsize(*a) == 4 || ft_lstsize(*a) == 5)
+			sort5(a, b);
+		if (ft_lstsize(*a) > 5)
+			surtar(a, b);
 	}
-	return (1);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
-
-int	ft_isalpha(int c)
-{
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
 }

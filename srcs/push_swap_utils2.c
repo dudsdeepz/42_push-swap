@@ -65,12 +65,4 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-int	smallest_move_cost(t_list **stack_a, t_list **stack_b)
-{
-	int		pos;
-	int		cost;
 
-	pos = get_pos(smallest(*stack_b), *stack_b);
-	cost = move_cost_aux(pos, stack_a, stack_b);
-	return (cost);
-}

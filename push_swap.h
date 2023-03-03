@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/01 11:57:11 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:34:22 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-t_list		*create_number(int box);
+t_list		*ft_lstnew(int box);
 t_list		*lstlast(t_list *head);
 void		sa(t_list	*list);
 void		ra(t_list	*list);
 void		rra(t_list **list);
 void		rrb(t_list **list);
 void		sort3(t_list **list);
-int			ft_atoi(const char *nptr);
+long		ft_atoi(const char *nptr);
 void		rr(t_list *stack_a, t_list *stack_b);
 void		rrr(t_list **stack_a, t_list **stack_b);
 void		print_list(t_list *head);
@@ -47,7 +47,7 @@ int			ft_lstsize(t_list *lst);
 int			get_pos(int pos, t_list *list);
 void		surtar(t_list **stack_a, t_list **stack_b);
 int			biggest(t_list *list);
-int			is_sorted(t_list **list);
+int			is_sorted(t_list *list);
 int			media(t_list *stack);
 long int	soma(t_list	*stack);
 void		half_sorted(t_list **stack_a, t_list **stack_b);
@@ -56,9 +56,17 @@ int			move_cost_aux(int pos, t_list **stack_a, t_list **stack_b);
 int			smallest_move_cost(t_list **stack_a, t_list **stack_b);
 int			total_cost(t_list **a, t_list **stack_b);
 int			neighbour(t_list **a, t_list **b);
-//int		test(t_list **stack_a, t_list **stack_b);
+void 		create_list(t_list **list, int ac, char **av);
 void		sort_checker(t_list **a, t_list **b);
-int			parsing(char **list);
-int			ft_isdigit(int c);
-int			ft_isalpha(int c);
+int			parsing(char **list, int ac);
+int			ft_ischar(int c);
+void 		bruh(t_list **stack_a, t_list **stack_b);
+int 		check_doubles(int ac, char **av);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstclear(t_list **lst);
+char		**ft_split(char const *s, char c);
+char		**recursive(char **split, int count, char c, char const *s);
+int 		ft_strlen(char *c);
+int 		is_num(char *c);
+
 #endif

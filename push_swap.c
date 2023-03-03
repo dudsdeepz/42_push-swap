@@ -6,38 +6,27 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:10:49 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/01 11:57:32 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:31:35 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **v)
+int	main(int ac, char **av)
 {
-	int		a;
-	t_list	*head;
-	t_list	*last;
-	t_list	*tmp;
+	t_list	*stack_a;
 	t_list	*stack_b;
 
+	stack_a = NULL;
 	stack_b = NULL;
-	head = NULL;
-	if (ac <= 2)
+	if (ac < 2)
 		return (0);
-	a = 1;
-	if (parsing(v) == 1)
+	if (parsing(av, ac) == 1)
 	{
-		while (v[a])
-		{
-			tmp = create_number(ft_atoi(v[a]));
-			if (!head)
-				head = tmp;
-			else
-				last->next = tmp;
-			last = tmp;
-			a++;
-		}
-		sort_checker(&head, &stack_b);
-		free(head);
+		create_list(&stack_a, ac, av);
+		sort_checker(&stack_a, &stack_b);
+		ft_lstclear(&stack_a);
+		ft_lstclear(&stack_b);
 	}
 }
+

@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/02/17 15:43:02 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:20:43 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,31 @@ void	rrb(t_list **list)
 int	get_pos(int item, t_list *list)
 {
 	int	count;
+	t_list *aux;
 
+	aux = list;
 	count = 0;
-	while (list->box != item)
+	while (list && aux->box != item)
 	{
 		count++;
+		aux = aux->next;
 	}
-	count++;
 	return (count);
 }
 
-int	is_sorted(t_list **list)
+int	is_sorted(t_list *list)
 {
-	t_list	*tmp;
-
-	tmp = (*list);
-	while (tmp->next)
+	if (list)
 	{
-		if (tmp->box > tmp->next->box)
-			return (0);
-		tmp = tmp->next;
+		while ((list)->next)
+		{
+			if ((list)->next->box < (list)->box)
+				return (0);
+			list = list->next;
+		}
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 int	move_cost_aux(int pos, t_list **stack_a, t_list **stack_b)
@@ -79,3 +82,6 @@ int	move_cost_aux(int pos, t_list **stack_a, t_list **stack_b)
 	}
 	return (move);
 }
+
+
+

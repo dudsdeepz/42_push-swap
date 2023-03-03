@@ -6,32 +6,31 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 15:43:51 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:07:59 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*create_number(int box)
+t_list	*ft_lstnew(int box)
 {
-	t_list	*n;
+	t_list	*new;
 
-	n = malloc(sizeof(t_list));
-	n->box = box;
-	n->next = NULL;
-	return (n);
+	new = (t_list *)malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new->box = box;
+	new->next = NULL;
+	return (new);
 }
 
 t_list	*lstlast(t_list *list)
 {
-	t_list	*tmp;
-
 	if (!list)
-		return (NULL);
-	tmp = list;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+		return (0);
+	while (list->next)
+		list = list->next;
+	return (list);
 }
 
 void	print_list(t_list *head)
@@ -46,7 +45,7 @@ void	print_list(t_list *head)
 	}
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	size_t		i;
 	long int	result;
@@ -63,8 +62,10 @@ int	ft_atoi(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr[i])
+	while (nptr[i])
 	{
+		if (!(nptr[i] >= '0' && nptr[i] <= '9'))
+			exit(write(2, "Error\n", 6));
 		result = result * 10 + nptr[i] - '0';
 		i++;
 	}
@@ -74,35 +75,37 @@ int	ft_atoi(const char *nptr)
 int move_cost(t_list **stack, int n)
 {
 	int	move;
+	t_list *aux;
 
+	aux = (*stack);
 	move = 0;
 	if (get_pos(n, *stack) < ft_lstsize(*stack) / 2)
 	{
+		printf ("get pos: %i\n", get_pos(n, aux));
 		while (move != get_pos(n, *stack))
 			move++;
 	}
 	else if (get_pos(n, *stack) >= ft_lstsize(*stack) / 2)
 	{
-		while (get_pos(n, *stack) != move)
+		while (move != get_pos(n, *stack))
 			move++;
-		move -= ft_lstsize(*stack) + 1;
-		move *= -1;
+		move -= ft_lstsize(*stack) / 2;
+		move -= -1;
 	}
-	else if (!move)
-		return (0);
-	return (move);
+	return (move + 1);
 }
 
-int total_cost(t_list **a, t_list **b)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		cost_b;
-	int		cost_a;
-	int		n;
+	t_list	*ptr;
 
-	n = neighbour(a, b);
-	printf("num: %i\n", n);
-	cost_b = move_cost(b, (*b)->box);
-	printf("cost_b: %i\n", cost_b);
-	cost_a = get_pos(n, *a);
-	return (cost_a + cost_b);
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	ptr = lstlast(*lst);
+	ptr->next = new;
 }

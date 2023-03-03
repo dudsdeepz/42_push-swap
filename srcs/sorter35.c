@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/17 13:43:59 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/03 18:23:31 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort3(t_list **head)
 
 void	sort5(t_list **stack_a, t_list **stack_b)
 {
-	while (ft_lstsize(*stack_a) != 3)
+	while (ft_lstsize(*stack_b) != 2)
 	{
 		if (get_pos(smallest(*stack_a), *stack_a) >= 4)
 		{
@@ -49,7 +49,7 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 				rra(stack_a);
 			pb(stack_a, stack_b);
 		}
-		else if (get_pos(smallest(*stack_a), *stack_a) <= 3)
+		else if (get_pos(smallest(*stack_a), *stack_a) < 4)
 		{
 			while ((*stack_a)->box > smallest(*stack_a))
 				ra(*stack_a);
@@ -61,3 +61,24 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 		pa(stack_b, stack_a);
 }
 
+void	ft_lstclear(t_list **lst)
+{
+	t_list	*ptr;
+
+	if (!*lst || !lst)
+		return ;
+	while (*lst)
+	{
+		ptr = (*lst)->next;
+		free(*lst);
+		*lst = ptr;
+	}
+	free(ptr);
+}
+
+int ft_ischar(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
+}
