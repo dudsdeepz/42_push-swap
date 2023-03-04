@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   surtar.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/03 19:01:19 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:23:26 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@ void	surtar(t_list **stack_a, t_list **stack_b)
 {
 	//t_list	*last_a;
 	//t_list	*last_b;
+	int		best:
 
 	//last_a = lstlast(*stack_a);
 	//last_b = lstlast(*stack_b);
+	best = bruh(stack_a, stack_b);
 	half_sorted(stack_a, stack_b);
 	sb(*stack_b);
 	print_list(*stack_a);
 	printf("====\n");
 	print_list(*stack_b);
-	bruh(stack_a, stack_b);
+	while (get_pos(best, (*stack_b)) != 0)
+		
 }
 
 int	parsing(char **list, int ac)
@@ -34,6 +37,8 @@ int	parsing(char **list, int ac)
 
 	i = 0;
 	a = 0;
+	if (!list)
+		return (0);
 	while (list[++i])
 	{
 		if (ft_strlen(list[i]) > 11)
@@ -68,22 +73,17 @@ int	check_doubles(int ac, char **av)
 	return (1);
 }
 
-int	total_cost(t_list **a, t_list **b)
+int	total_cost(t_list **a, t_list **b, t_list *aux_b)
 {
 	int		cost_b;
-	int	cost_a;
+	int		cost_a;
 	t_list	*aux;
-	t_list	*aux_b;
 
-	aux_b = (*b);
 	aux = (*a);
-	cost_a = get_pos(aux->box, aux);
+	cost_a = 0;
 	cost_b = move_cost(&aux_b, (*b)->box);
 	while (cost_a != get_pos(neighbour(&aux, &aux_b), *a))
 			cost_a++;
-	printf("cost_a: %i\n", cost_a);
-	printf("cost_b: %i\n", cost_b);
-	printf("neighbour: %i\n", neighbour(&aux, &aux_b));
 	return (cost_b + cost_a);
 }
 
@@ -107,5 +107,7 @@ int is_num(char *c)
 	if (c[i] == '-' || c[i] == '+')
 		while (c[j] && (c[j] <= '9' && c[j] >= '0'))
 			j++;
-	return ((!c[i]));
+	else
+		return (0);
+	return (1);
 }

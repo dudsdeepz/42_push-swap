@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/03 19:01:51 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:02:29 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ long	ft_atoi(const char *nptr)
 		if (nptr[i] == '-')
 			sign = -1;
 		i++;
+		if (nptr[i] == 0)
+			exit (write(2, "Error\n", 6));
 	}
 	while (nptr[i])
 	{
@@ -75,13 +77,10 @@ long	ft_atoi(const char *nptr)
 int	move_cost(t_list **stack, int n)
 {
 	int	move;
-	t_list *aux;
 
-	aux = (*stack);
 	move = 0;
 	if (get_pos(n, *stack) < ft_lstsize(*stack) / 2)
 	{
-		printf ("get pos: %i\n", get_pos(n, aux));
 		while (move != get_pos(n, *stack))
 			move++;
 	}

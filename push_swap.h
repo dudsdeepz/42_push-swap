@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/03 19:01:08 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:13:20 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void		half_sorted(t_list **stack_a, t_list **stack_b);
 int 		move_cost(t_list **stack, int n);
 int			move_cost_aux(int pos, t_list **stack_a, t_list **stack_b);
 int			smallest_move_cost(t_list **stack_a, t_list **stack_b);
-int			total_cost(t_list **a, t_list **stack_b);
+int			total_cost(t_list **a, t_list **stack_b, t_list *aux_b);
 int			neighbour(t_list **a, t_list **b);
 void 		create_list(t_list **list, int ac, char **av);
 void		sort_checker(t_list **a, t_list **b);
 int			parsing(char **list, int ac);
 int			ft_ischar(int c);
-void 		bruh(t_list **stack_a, t_list **stack_b);
+int 		bruh(t_list **stack_a, t_list **stack_b);
 int 		check_doubles(int ac, char **av);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst);

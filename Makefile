@@ -6,11 +6,7 @@
 #    By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:08:17 by eduarodr          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2023/03/03 18:57:27 by eduarodr         ###   ########.fr        #
-=======
-#    Updated: 2023/02/20 11:46:18 by eduardo          ###   ########.fr        #
->>>>>>> f557860f924ec5de4fdada33e490e396c8f7ddad
+#    Updated: 2023/03/03 22:43:30 by eduardo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +29,7 @@ CC = gcc
 
 RM = rm -f
 
-<<<<<<< HEAD
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
-=======
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
->>>>>>> f557860f924ec5de4fdada33e490e396c8f7ddad
 
 PRINTF_PATH = ./printf
 PRINTF_NAME = libftprintf.a

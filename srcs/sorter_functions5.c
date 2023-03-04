@@ -3,28 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions5.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:55:45 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/03 19:01:24 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:19:38 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void 		bruh(t_list **stack_a, t_list **stack_b)
+int 		bruh(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*aux;
+	int first_cost;
+	int second_cost;
+	int hold_cost;
 
+	hold_cost = 0;
 	aux = (*stack_b);
-    while (aux != NULL)
-    {
-        printf("num b: %i\n", aux->box);
-		printf("total cost: %i\n", total_cost(stack_a, &aux));
-        printf("======\n");
-        aux = aux->next;
-    }
-    (*stack_a) = (*stack_a)->next;
+	// first_cost = total_cost(stack_a, stack_b, aux);
+	// (*stack_b) = (*stack_b)->next;
+	// second_cost = total_cost(stack_a, stack_b, aux);
+	hold_cost = (*stack_b)->box;
+	while ((*stack_b)->next != NULL)
+	{
+		first_cost = total_cost(stack_a, stack_b, aux);
+		(*stack_b) = (*stack_b)->next;
+		second_cost = total_cost(stack_a, stack_b, aux);
+		if (first_cost > second_cost)
+			hold_cost = (*stack_b)->box;
+		(*stack_b) = (*stack_b)->next;
+	}
+	return (hold_cost);
 }
 
 char	**recursive(char **split, int count, char c, char const *s)
@@ -78,8 +88,6 @@ int ft_strlen(char *c)
 	int i;
 
 	i = 0;
-	if (!is_num(c))
-		exit (write(2, "Error\n", 6));
 	if (ft_atoi(c) > INT_MAX || ft_atoi(c) < INT_MIN)
 		exit (write(2, "Error\n", 6));
 	while (c[i])
