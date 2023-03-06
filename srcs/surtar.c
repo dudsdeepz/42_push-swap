@@ -6,28 +6,46 @@
 /*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/04 00:23:26 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/05 14:33:00 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	surtar(t_list **stack_a, t_list **stack_b)
+void	surtar(t_list **a, t_list **b)
 {
-	//t_list	*last_a;
-	//t_list	*last_b;
-	int		best:
-
-	//last_a = lstlast(*stack_a);
-	//last_b = lstlast(*stack_b);
-	best = bruh(stack_a, stack_b);
-	half_sorted(stack_a, stack_b);
-	sb(*stack_b);
-	print_list(*stack_a);
-	printf("====\n");
-	print_list(*stack_b);
-	while (get_pos(best, (*stack_b)) != 0)
-		
+	t_list *aux_b;
+	int 	move;
+	
+	half_sorted(a, b);
+	aux_b = (*b);
+	while ((*b) != NULL)
+	{
+		move = get_pos(bruh(a, b), aux_b);
+		printf("best: %i\n", bruh(a, b));
+		printf("best pos: %i\n", move);
+		if (get_pos(bruh(a, b), aux_b) <= ft_lstsize(*b) / 2)
+		{
+			printf("best: %i\n", bruh(a, b));
+			printf("best pos1: %i\n", move);
+			while (move != 0)
+			{
+				rb(*b);
+				move--;
+			}
+			pa(b, a);
+		}
+		else if (get_pos(bruh(a, b), aux_b) > ft_lstsize(*b) / 2)
+		{
+			printf("best: %i\n", bruh(a, b));
+			while (move != 0)
+			{
+				rrb(b);
+				move--;
+			}
+			pa(b, a);
+		}
+	}
 }
 
 int	parsing(char **list, int ac)

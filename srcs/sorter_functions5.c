@@ -6,7 +6,7 @@
 /*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:55:45 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/04 00:19:38 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/05 14:33:41 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,32 @@
 
 int 		bruh(t_list **stack_a, t_list **stack_b)
 {
+	
 	t_list	*aux;
-	int first_cost;
-	int second_cost;
 	int hold_cost;
+	int second_cost;
+	int hold_best;
+	t_list *aux2;
+	t_list *aux3;
 
-	hold_cost = 0;
+	aux3 = (*stack_b);
 	aux = (*stack_b);
-	// first_cost = total_cost(stack_a, stack_b, aux);
-	// (*stack_b) = (*stack_b)->next;
-	// second_cost = total_cost(stack_a, stack_b, aux);
-	hold_cost = (*stack_b)->box;
-	while ((*stack_b)->next != NULL)
+	aux2 = (*stack_b);
+	hold_best = (*stack_b)->box;
+	hold_cost = total_cost(stack_a, stack_b, aux);
+	while (aux2->next != NULL)
 	{
-		first_cost = total_cost(stack_a, stack_b, aux);
-		(*stack_b) = (*stack_b)->next;
 		second_cost = total_cost(stack_a, stack_b, aux);
-		if (first_cost > second_cost)
-			hold_cost = (*stack_b)->box;
-		(*stack_b) = (*stack_b)->next;
+		if (hold_cost > second_cost)
+		{
+			hold_cost = second_cost;
+			hold_best = aux3->box;
+		}
+		aux3 = aux3->next;
+		aux2 = aux2->next;
 	}
-	return (hold_cost);
-}
-
-char	**recursive(char **split, int count, char c, char const *s)
-{
-	int		i;
-	char	*str;
-
-	str = NULL;
-	i = 0;
-	while (s && *s && *s == c)
-		s++;
-	while (*s && s[i] && s[i] != c)
-		i++;
-	if (i > 0)
-		str = malloc(sizeof(char) * i + 1);
-	if (str)
-		str[i] = '\0';
-	while (str && s && *s && *s != c)
-		str[i++] = *s++;
-	if (str)
-		split = recursive(split, count + 1, c, s);
-	else
-		split = malloc(sizeof(char *) * (count + 1));
-	if (split)
-		split[count] = str;
-	return (split);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	return (recursive(NULL, 0, c, s));
+	printf("hold_best: %i\n", hold_best);
+	return (hold_best);
 }
 
 int	many_spaces(char **av)

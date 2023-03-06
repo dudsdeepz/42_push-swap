@@ -6,7 +6,7 @@
 /*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/03/03 23:57:36 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/05 14:31:28 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	half_sorted(t_list **stack_a, t_list **stack_b)
 	{
 		if ((*stack_a)->box <= media(*stack_a))
 		{
+			printf("num: %i\n", (*stack_a)->box);
 			pb (stack_a, stack_b);
 			if (ft_lstsize(*stack_b) > 5)
 			{
