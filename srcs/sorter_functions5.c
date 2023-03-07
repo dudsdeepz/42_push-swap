@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:55:45 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 11:23:26 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:36:02 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,15 @@ int	bruh(t_list **stack_a, t_list **stack_b)
 {
 
 	t_list	*aux;
-	int hold_cost;
-	int hold_best;
-	t_list *aux2;
 
 	aux = (*stack_b);
-	aux2 = (*stack_b);
-	hold_best = (*stack_b)->box;
-	hold_cost = total_cost(stack_a, stack_b, aux);
-	while (aux2->next != NULL)
+	while ((*stack_b)->next != NULL)
 	{
-		printf("total_cost: %i\n", hold_cost);
-		aux2 = aux2->next;
+		printf("total_cost: %i\n", total_cost(stack_a, stack_b, aux));
+		printf("====\n");
+		(*stack_b) = (*stack_b)->next;
 	}
-	return (hold_best);
+	return (0);
 }
 
 int	many_spaces(char **av)
