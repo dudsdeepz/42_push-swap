@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:04:42 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 14:12:04 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 22:46:13 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ t_list	*smallest(t_list *list)
 	return (min);
 }
 
-int	biggest(t_list *list)
+t_list	*biggest(t_list *list)
 {
-	int	max;
+	t_list	*max;
 
-	max = INT_MIN;
+	max = list;
 	while (list != NULL)
 	{
-		if (max < list->box)
-			max = list->box;
+		if (max->box < list->box)
+			max->box = list->box;
 		list = list->next;
 	}
 	return (max);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 15:25:33 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 22:44:34 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_list		*smallest(t_list *list);
 int			ft_lstsize(t_list *lst);
 int			get_pos(t_list *item, t_list *list);
 void		surtar(t_list **a, t_list **b);
-int			biggest(t_list *list);
+t_list		*biggest(t_list *list);
 int			is_sorted(t_list *list);
 int			media(t_list *stack);
 long int	soma(t_list	*stack);
@@ -66,5 +66,7 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst);
 int			ft_strlen(char *c);
 void		both_top(t_list **a, t_list **b, t_list *n);
+int 		rr_cost(t_list *list, t_list *n);
+int 		r_cost(t_list *list, t_list *n);
 
 #endif

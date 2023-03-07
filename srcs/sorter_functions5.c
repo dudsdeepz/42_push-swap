@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions5.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:55:45 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 15:52:26 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:34:24 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ t_list	*bruh(t_list **stack_a, t_list **stack_b)
 	int		cost_aux;
 
 	aux = (*stack_b);
-	cost_aux = INT_MAX;
+	cost = INT_MAX;
 	while (aux)
 	{
-		cost = total_cost(stack_a, stack_b, aux);
-		if (cost < cost_aux)
+		cost_aux = total_cost(stack_a, stack_b, aux);
+		if (cost_aux < cost)
 		{
-			cost_aux = cost;
+			cost = cost_aux;
 			best = aux;
 		}
 		aux = aux->next;
@@ -64,37 +64,35 @@ int ft_strlen(char *c)
 void	both_top(t_list **a, t_list **b, t_list *n)
 {
 	t_list	*neighbourrr;
-	int		b_move;
-	int		neigh_pos;
 
-	neighbourrr = neighbour(*a, *b);
-	printf("neighbourrr: %i\n", neighbourrr->box);
-	neigh_pos = get_pos(neighbourrr, *a);
-	b_move = get_pos(n, *b);
-	while (neigh_pos != 0)
+	neighbourrr = neighbour(*a, n);
+	printf("neighbour %i\n", neighbourrr->box);
+	printf("num b: %i\n", n->box);
+	while (get_pos(neighbourrr, *a) != 0)
 	{
-		if (neigh_pos >= ft_lstsize(*a) / 2)
-		{
+		get_pos(neighbourrr, *a);
+		if (rr_cost(*a, neighbourrr) < r_cost(*a, neighbourrr))
 			rra(a);
-			neigh_pos--;
-		}
 		else
-		{
 			ra(*a);
-			neigh_pos--;
-		}
 	}
-	while (b_move != 0)
+	while (get_pos(n, *b) != 0)
 	{
-		if (b_move >= ft_lstsize(*b) / 2)
-		{
+		get_pos(n, *b);
+		if (rr_cost(*b, n) < r_cost(*b, n))
 			rrb(b);
-			b_move--;
-		}
 		else
-		{
 			rb(*b);
-			b_move--;
-		}
 	}
+}
+
+int r_cost(t_list *list, t_list *n)
+{
+	return (ft_lstsize(list) - ft_lstsize(n));
+}
+
+int rr_cost(t_list *list, t_list *n)
+{
+	(void)list;
+	return (ft_lstsize(n));
 }

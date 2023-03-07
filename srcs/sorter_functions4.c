@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions4.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/03/07 14:31:20 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:36:35 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	half_sorted(t_list **stack_a, t_list **stack_b)
 		if ((*stack_a)->box <= media(*stack_a))
 		{
 			pb (stack_a, stack_b);
-			if (ft_lstsize(*stack_b) > 5)
+			if (ft_lstsize(*stack_b) > 10)
 			{
 				if ((*stack_b)->box < media(*stack_b))
 					rb(*stack_b);
@@ -53,27 +53,21 @@ t_list	*neighbour(t_list *a, t_list *b)
 {
 	t_list	*elem;
 	int		hold;
-	t_list	*aux_a;
-	t_list	*aux_b;
+	int 	aux;
 
-	aux_a = a;
-	aux_b = b;
-	hold = aux_a->box - aux_b->box;
-	elem = aux_a;
-	while (aux_a)
+	elem = a;
+	aux = INT_MAX;
+	if ((b)->box > lstlast(a)->box)
+		return (smallest(a));
+	while (a->next)
 	{
-		if (hold < 0)
+		hold = a->box - b->box;
+		if (aux > hold && hold > 0)
 		{
-			aux_a = aux_a->next;
-			hold = aux_a->box - aux_b->box;
-			elem = aux_a;
+			aux = hold;
+			elem = a;
 		}
-		if (aux_a->box - aux_b->box < hold)
-		{
-			hold = aux_a->box - aux_b->box;
-			elem = aux_a;
-		}
-		aux_a = aux_a->next;
+		a = a->next;
 	}
 	return (elem);
 }
@@ -90,3 +84,4 @@ void	sort_checker(t_list **a, t_list **b)
 			surtar(a, b);
 	}
 }
+

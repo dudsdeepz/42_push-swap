@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:10:49 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 15:42:40 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:30:18 by eduardo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	{
 		create_list(&stack_a, ac, av);
 		sort_checker(&stack_a, &stack_b);
+		print_list(stack_a);
 		ft_lstclear(&stack_a);
 		ft_lstclear(&stack_b);
 	}
