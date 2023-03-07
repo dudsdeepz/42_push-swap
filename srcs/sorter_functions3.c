@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:10:49 by eduardo           #+#    #+#             */
-/*   Updated: 2023/03/05 14:20:39 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/06 16:30:19 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	get_pos(int item, t_list *list)
 
 	aux = list;
 	count = 0;
-	while (list && aux->box != item)
+	while (item != aux->box && list)
 	{
-		count++;
 		aux = aux->next;
+		count++;
 	}
 	return (count);
 }

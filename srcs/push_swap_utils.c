@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:07:28 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/04 00:02:29 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/07 10:53:19 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	move_cost(t_list **stack, int n)
 		move -= ft_lstsize(*stack) / 2;
 		move -= -1;
 	}
-	return (move + 1);
+	return (move);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)

@@ -3,42 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions5.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:55:45 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/05 14:33:41 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:23:26 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int 		bruh(t_list **stack_a, t_list **stack_b)
+int	bruh(t_list **stack_a, t_list **stack_b)
 {
-	
+
 	t_list	*aux;
 	int hold_cost;
-	int second_cost;
 	int hold_best;
 	t_list *aux2;
-	t_list *aux3;
 
-	aux3 = (*stack_b);
 	aux = (*stack_b);
 	aux2 = (*stack_b);
 	hold_best = (*stack_b)->box;
 	hold_cost = total_cost(stack_a, stack_b, aux);
 	while (aux2->next != NULL)
 	{
-		second_cost = total_cost(stack_a, stack_b, aux);
-		if (hold_cost > second_cost)
-		{
-			hold_cost = second_cost;
-			hold_best = aux3->box;
-		}
-		aux3 = aux3->next;
+		printf("total_cost: %i\n", hold_cost);
 		aux2 = aux2->next;
 	}
-	printf("hold_best: %i\n", hold_best);
 	return (hold_best);
 }
 

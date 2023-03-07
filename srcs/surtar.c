@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   surtar.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/05 14:33:00 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:14:36 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,35 @@
 
 void	surtar(t_list **a, t_list **b)
 {
-	t_list *aux_b;
-	int 	move;
-	
+	//t_list 		*aux_b;
+	//int 		move;
+
 	half_sorted(a, b);
-	aux_b = (*b);
-	while ((*b) != NULL)
-	{
-		move = get_pos(bruh(a, b), aux_b);
-		printf("best: %i\n", bruh(a, b));
-		printf("best pos: %i\n", move);
-		if (get_pos(bruh(a, b), aux_b) <= ft_lstsize(*b) / 2)
-		{
-			printf("best: %i\n", bruh(a, b));
-			printf("best pos1: %i\n", move);
-			while (move != 0)
-			{
-				rb(*b);
-				move--;
-			}
-			pa(b, a);
-		}
-		else if (get_pos(bruh(a, b), aux_b) > ft_lstsize(*b) / 2)
-		{
-			printf("best: %i\n", bruh(a, b));
-			while (move != 0)
-			{
-				rrb(b);
-				move--;
-			}
-			pa(b, a);
-		}
-	}
+	bruh(a, b);
+	//while ((*b) != NULL)
+	//{
+	//	aux_b = (*b);
+	//	move = get_pos(bruh(a, b), aux_b);
+	//	printf("bruh: %i\n", bruh(a, b));
+	//	if (move <= ft_lstsize(*b) / 2)
+	//	{
+	//		while (move > 0)
+	//		{
+	//			rb(*b);
+	//			move--;
+	//		}
+	//		pa(b, a);
+	//	}
+	//	else if (move > ft_lstsize(*b) / 2)
+	//	{
+	//		while (move > 0)
+	//		{
+	//			rrb(b);
+	//			move--;
+	//		}
+	//		pa(b, a);
+	//	}
+	//}
 }
 
 int	parsing(char **list, int ac)
@@ -95,13 +92,13 @@ int	total_cost(t_list **a, t_list **b, t_list *aux_b)
 {
 	int		cost_b;
 	int		cost_a;
-	t_list	*aux;
+	int		aux;
 
-	aux = (*a);
-	cost_a = 0;
-	cost_b = move_cost(&aux_b, (*b)->box);
-	while (cost_a != get_pos(neighbour(&aux, &aux_b), *a))
-			cost_a++;
+	aux = neighbour(*a, aux_b);
+	printf("num b: %i\n", (*b)->box);
+	printf("neighbour: %i\n", neighbour(*a, aux_b));
+	cost_a = move_cost(a, aux);
+	cost_b = move_cost(&aux_b, aux_b->box);
 	return (cost_b + cost_a);
 }
 

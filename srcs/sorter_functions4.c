@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions4.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/03/05 14:31:28 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:03:39 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	half_sorted(t_list **stack_a, t_list **stack_b)
 	{
 		if ((*stack_a)->box <= media(*stack_a))
 		{
-			printf("num: %i\n", (*stack_a)->box);
 			pb (stack_a, stack_b);
 			if (ft_lstsize(*stack_b) > 5)
 			{
@@ -50,33 +49,30 @@ void	half_sorted(t_list **stack_a, t_list **stack_b)
 	sort3(stack_a);
 }
 
-int	neighbour(t_list **a, t_list **b)
+int	neighbour(t_list *a, t_list *b)
 {
 	int		elem;
 	int		hold;
-	t_list	*aux_a;
-	t_list	*aux_b;
+	t_list	*aux;
 
-	aux_a = (*a);
-	aux_b = (*b);
-	hold = aux_a->box - aux_b->box;
-	elem = aux_a->box;
-	while (hold < 0)
+	aux = a;
+	if (!a || !b)
+		return (0);
+	if (b->box > biggest(a))
+		return (smallest(a));
+	aux = a;
+	elem = INT_MAX;
+	while (a)
 	{
-		aux_a = aux_a->next;
-		hold = aux_a->box - aux_b->box;
-	}
-	while (aux_a->next)
-	{
-		if (aux_a->box - aux_b->box < hold)
+		hold = a->box - b->box;
+		if (elem > hold && hold > 0)
 		{
-			hold = aux_a->box - aux_b->box;
-			elem = aux_a->box;
+			elem = hold;
+			aux = a;
 		}
-		aux_a = aux_a->next;
+		a = a->next;
 	}
-
-	return (elem);
+	return (aux->box);
 }
 
 void	sort_checker(t_list **a, t_list **b)
