@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter35.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/05 14:26:30 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:49:36 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 	{
 		if (get_pos(smallest(*stack_a), *stack_a) >= 4)
 		{
-			while ((*stack_a)->box > smallest(*stack_a))
+			while ((*stack_a)->box > smallest(*stack_a)->box)
 				rra(stack_a);
 			pb(stack_a, stack_b);
 		}
 		else if (get_pos(smallest(*stack_a), *stack_a) < 4)
 		{
-			while ((*stack_a)->box > smallest(*stack_a))
+			while ((*stack_a)->box > smallest(*stack_a)->box)
 				ra(*stack_a);
 			pb(stack_a, stack_b);
 		}

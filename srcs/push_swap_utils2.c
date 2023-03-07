@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:04:42 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/03 19:01:44 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:12:04 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new = new->next;
 }
 
-int	smallest(t_list *list)
+t_list	*smallest(t_list *list)
 {
-	int	min;
+	t_list	*min;
 
-	min = INT_MAX;
+	min = list;
 	while (list != NULL)
 	{
-		if (min > list->box)
-			min = list->box;
+		if (min->box > list->box)
+			min = list;
 		list = list->next;
 	}
 	return (min);

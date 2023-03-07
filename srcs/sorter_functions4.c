@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:58:03 by eduardo           #+#    #+#             */
-/*   Updated: 2023/03/07 11:03:39 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:31:20 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,30 +49,33 @@ void	half_sorted(t_list **stack_a, t_list **stack_b)
 	sort3(stack_a);
 }
 
-int	neighbour(t_list *a, t_list *b)
+t_list	*neighbour(t_list *a, t_list *b)
 {
-	int		elem;
+	t_list	*elem;
 	int		hold;
-	t_list	*aux;
+	t_list	*aux_a;
+	t_list	*aux_b;
 
-	aux = a;
-	if (!a || !b)
-		return (0);
-	if (b->box > biggest(a))
-		return (smallest(a));
-	aux = a;
-	elem = INT_MAX;
-	while (a)
+	aux_a = a;
+	aux_b = b;
+	hold = aux_a->box - aux_b->box;
+	elem = aux_a;
+	while (aux_a)
 	{
-		hold = a->box - b->box;
-		if (elem > hold && hold > 0)
+		if (hold < 0)
 		{
-			elem = hold;
-			aux = a;
+			aux_a = aux_a->next;
+			hold = aux_a->box - aux_b->box;
+			elem = aux_a;
 		}
-		a = a->next;
+		if (aux_a->box - aux_b->box < hold)
+		{
+			hold = aux_a->box - aux_b->box;
+			elem = aux_a;
+		}
+		aux_a = aux_a->next;
 	}
-	return (aux->box);
+	return (elem);
 }
 
 void	sort_checker(t_list **a, t_list **b)

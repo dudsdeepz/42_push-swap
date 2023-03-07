@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 11:41:32 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:51:56 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 void	surtar(t_list **a, t_list **b)
 {
-	int	move;
 
 	half_sorted(a, b);
+	sort3(a);
 	while ((*b))
-		{
-			bruh
-			pa(b, a);
-		}
-	move = get_pos(smallest(*a), *a)
-	smalllest_top;
+	{
+		both_top(a, b, bruh(a, b));
+		pa(b, a);
+	}
 }
 
 int	parsing(char **list, int ac)
@@ -73,13 +71,11 @@ int	total_cost(t_list **a, t_list **b, t_list *aux_b)
 {
 	int		cost_b;
 	int		cost_a;
-	int		aux;
+	t_list	*aux;
 
 	aux = neighbour(*a, aux_b);
-	printf("num b: %i\n", (*b)->box);
-	printf("neighbour: %i\n", neighbour(*a, aux_b));
-	cost_a = move_cost(a, aux);
-	cost_b = move_cost(&aux_b, aux_b->box);
+	cost_a = get_pos(aux, *a);
+	cost_b = move_cost(b, aux_b);
 	return (cost_b + cost_a);
 }
 
