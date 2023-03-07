@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:38:06 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 11:14:36 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:41:32 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,16 @@
 
 void	surtar(t_list **a, t_list **b)
 {
-	//t_list 		*aux_b;
-	//int 		move;
+	int	move;
 
 	half_sorted(a, b);
-	bruh(a, b);
-	//while ((*b) != NULL)
-	//{
-	//	aux_b = (*b);
-	//	move = get_pos(bruh(a, b), aux_b);
-	//	printf("bruh: %i\n", bruh(a, b));
-	//	if (move <= ft_lstsize(*b) / 2)
-	//	{
-	//		while (move > 0)
-	//		{
-	//			rb(*b);
-	//			move--;
-	//		}
-	//		pa(b, a);
-	//	}
-	//	else if (move > ft_lstsize(*b) / 2)
-	//	{
-	//		while (move > 0)
-	//		{
-	//			rrb(b);
-	//			move--;
-	//		}
-	//		pa(b, a);
-	//	}
-	//}
+	while ((*b))
+		{
+			bruh
+			pa(b, a);
+		}
+	move = get_pos(smallest(*a), *a)
+	smalllest_top;
 }
 
 int	parsing(char **list, int ac)
