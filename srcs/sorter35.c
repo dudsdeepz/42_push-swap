@@ -6,7 +6,7 @@
 /*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:34:48 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 14:49:36 by eduarodr         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:42:38 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ void	sort3(t_list **head)
 		rra(head);
 	else if (last->box < tmp->box && last->box < tmp->next->box)
 	{
-		ra(*head);
+		ra(head);
 		sa(*head);
 	}
 	else if (tmp->box > tmp->next->box && tmp->box > last->box)
-		ra(*head);
+		ra(head);
 	else if (tmp->box < last->box && tmp->box > tmp->next->box)
 		sa(*head);
 	else if (tmp->next->box > tmp->box && last->box < tmp->next->box)
 	{
 		sa(*head);
-		ra(*head);
+		ra(head);
 	}
 }
 
@@ -52,7 +52,7 @@ void	sort5(t_list **stack_a, t_list **stack_b)
 		else if (get_pos(smallest(*stack_a), *stack_a) < 4)
 		{
 			while ((*stack_a)->box > smallest(*stack_a)->box)
-				ra(*stack_a);
+				ra(stack_a);
 			pb(stack_a, stack_b);
 		}
 	}

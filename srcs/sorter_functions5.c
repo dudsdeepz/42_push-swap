@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions5.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:55:45 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 23:34:24 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:52:29 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*bruh(t_list **stack_a, t_list **stack_b)
 	while (aux)
 	{
 		cost_aux = total_cost(stack_a, stack_b, aux);
-		if (cost_aux < cost)
+		if (cost > cost_aux)
 		{
 			cost = cost_aux;
 			best = aux;
@@ -61,38 +61,33 @@ int ft_strlen(char *c)
 	return (i);
 }
 
-void	both_top(t_list **a, t_list **b, t_list *n)
+void	push_neigh(t_list **a, t_list **b, t_list *elem)
 {
-	t_list	*neighbourrr;
+	t_list	*aux;
 
-	neighbourrr = neighbour(*a, n);
-	printf("neighbour %i\n", neighbourrr->box);
-	printf("num b: %i\n", n->box);
-	while (get_pos(neighbourrr, *a) != 0)
+	aux = neighbour(*a, bruh(a, b));
+	while (aux != *a)
 	{
-		get_pos(neighbourrr, *a);
-		if (rr_cost(*a, neighbourrr) < r_cost(*a, neighbourrr))
+		if (rrcost(aux) < rcost(*a, aux))
 			rra(a);
 		else
-			ra(*a);
+			ra(a);
 	}
-	while (get_pos(n, *b) != 0)
+	while (elem != *b)
 	{
-		get_pos(n, *b);
-		if (rr_cost(*b, n) < r_cost(*b, n))
+		if (rrcost(elem) < rcost(*b, elem))
 			rrb(b);
 		else
-			rb(*b);
+			rb(b);
 	}
 }
 
-int r_cost(t_list *list, t_list *n)
+int	rcost(t_list *stack, t_list *n)
 {
-	return (ft_lstsize(list) - ft_lstsize(n));
+	return (ft_lstsize(stack) - ft_lstsize(n));
 }
 
-int rr_cost(t_list *list, t_list *n)
+int rrcost(t_list *n)
 {
-	(void)list;
 	return (ft_lstsize(n));
 }

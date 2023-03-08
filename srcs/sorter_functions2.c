@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:57:38 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/02/20 11:45:18 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:52:58 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,16 @@ void	pa(t_list **stack_src, t_list **stack_dest)
 	ft_printf("pa\n");
 }
 
-void	rb(t_list *list)
+void	rb(t_list **list)
 {
-	int		tmp;
+	t_list	*tmp;
 	t_list	*aux;
 
-	aux = list;
-	tmp = list->box;
-	while (aux->next)
-	{
-		aux->box = aux->next->box;
-		aux = aux->next;
-	}
-	aux->box = tmp;
+	tmp = (*list);
+	(*list) = (*list)->next;
+	aux = lstlast(*list);
+	aux->next = tmp;
+	tmp->next = NULL;
 	ft_printf("rb\n");
 }
 

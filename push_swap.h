@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:08:21 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/03/07 22:44:34 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:53:06 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 t_list		*ft_lstnew(int box);
 t_list		*lstlast(t_list *head);
 void		sa(t_list	*list);
-void		ra(t_list	*list);
+void		ra(t_list	**list);
 void		rra(t_list **list);
 void		rrb(t_list **list);
 void		sort3(t_list **list);
@@ -40,7 +40,7 @@ int			ft_printf(const char *format, ...);
 void		sort5(t_list **stack_a, t_list **stack_b);
 void		pa(t_list **stack_src, t_list **stack_dest);
 void		sb(t_list *list);
-void		rb(t_list *list);
+void		rb(t_list **list);
 void		pb(t_list **stack_src, t_list **stack_dest);
 t_list		*smallest(t_list *list);
 int			ft_lstsize(t_list *lst);
@@ -51,7 +51,7 @@ int			is_sorted(t_list *list);
 int			media(t_list *stack);
 long int	soma(t_list	*stack);
 void		half_sorted(t_list **stack_a, t_list **stack_b);
-int			move_cost(t_list **stack, t_list *n);
+int			move_cost(t_list *stack, t_list *n);
 int			move_cost_aux(int pos, t_list **stack_a, t_list **stack_b);
 int			smallest_move_cost(t_list **stack_a, t_list **stack_b);
 int			total_cost(t_list **a, t_list **stack_b, t_list *aux_b);
@@ -65,8 +65,8 @@ int			check_doubles(int ac, char **av);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst);
 int			ft_strlen(char *c);
-void		both_top(t_list **a, t_list **b, t_list *n);
-int 		rr_cost(t_list *list, t_list *n);
-int 		r_cost(t_list *list, t_list *n);
-
+void		push_neigh(t_list **a, t_list **neigh, t_list *elem);
+void 		min_topo(t_list **stack);
+int			rcost(t_list *stack, t_list *n);
+int 		rrcost(t_list *n);
 #endif

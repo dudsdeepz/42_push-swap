@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduardo <eduardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eduarodr <eduarodr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:53:50 by eduarodr          #+#    #+#             */
-/*   Updated: 2023/01/31 14:00:51 by eduardo          ###   ########.fr       */
+/*   Updated: 2023/03/08 19:53:12 by eduarodr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,29 @@ void	ss(t_list *stack_a, t_list *stack_b)
 
 void	rr(t_list *stack_a, t_list *stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(&stack_a);
+	rb(&stack_b);
 	ft_printf("rr\n");
 }
 
-void	ra(t_list *list)
+void	ra(t_list **list)
 {
-	int		tmp;
+	t_list	*tmp;
 	t_list	*aux;
 
-	aux = list;
-	tmp = list->box;
-	while (aux->next)
-	{
-		aux->box = aux->next->box;
-		aux = aux->next;
-	}
-	aux->box = tmp;
+	tmp = (*list);
+	(*list) = (*list)->next;
+	aux = lstlast(*list);
+	aux->next = tmp;
+	tmp->next = NULL;
+	//aux = list;
+	//tmp = list->box;
+	//while (aux->next)
+	//{
+	//	aux->box = aux->next->box;
+	//	aux = aux->next;
+	//}
+	//aux->box = tmp;
 	ft_printf("ra\n");
 }
 
